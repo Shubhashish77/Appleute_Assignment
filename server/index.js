@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
 const productRouter = require('./routes/productRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -13,6 +14,7 @@ const app = express();
 dotenv.config({ path: "./config.env" });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+app.use(cookieParser());
 app.use(cors());
 
 
